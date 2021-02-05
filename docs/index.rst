@@ -19,12 +19,15 @@ Template first steps
    first_steps/prerequisites
 
 
-
 Test Driven Development (TDD) Tutorial
 =========================================
 
+* What is TDD and which are the benefits -> :doc:`tdd_tutorial/introduction`.
+* Basics on unit testing -> :doc:`tdd_tutorial/unit_testing`.
+* Basics on functional testing -> :doc:`tdd_tutorial/functional_testing`.
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
    :caption: TDD Tutorial:
 
@@ -33,14 +36,11 @@ Test Driven Development (TDD) Tutorial
    tdd_tutorial/functional_testing
 
 
-
-
-
 SQA Tutorial guide
 =========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
    :caption: SQA Tutorial guide:
 
