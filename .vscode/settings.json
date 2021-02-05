@@ -1,0 +1,32 @@
+{
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "restructuredtext.confPath": "${workspaceFolder}/docs",
+    "cSpell.words": [
+        "args",
+        "based",
+        "cheatsheet",
+        "cmdline",
+        "devcontainer",
+        "dockerhub",
+        "doctest",
+        "kool",
+        "lextudio",
+        "linebreaks",
+        "listdir",
+        "mydb",
+        "mypackage",
+        "nargs",
+        "ptrace",
+        "restructuredtext",
+        "seccomp",
+        "subclassing",
+        "testcase",
+        "traceback",
+        "udocker",
+        "unconfined",
+        "ungit"
+    ],
+    "python.pythonPath": "/home/borja/miniconda3/bin/python"
+}
