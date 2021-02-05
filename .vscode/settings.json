@@ -1,7 +1,7 @@
 {
-    "python.testing.unittestEnabled": false,
+    "python.testing.unittestEnabled": true,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pytestEnabled": true,
+    "python.testing.pytestEnabled": false,
     "restructuredtext.confPath": "${workspaceFolder}/docs",
     "cSpell.words": [
         "args",
