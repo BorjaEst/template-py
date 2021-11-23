@@ -1,48 +1,35 @@
-import threading
-import uuid
+"""Pizza factory module"""
+from pizza_factory.pizza import Dough, Pizza
 
 
 class Factory:
-    def __init__(self, name, location) -> None:
-        self.name = name
+    def __init__(self, location, recipes) -> None:
         self.location = location
-        self.machines = {}
+        self.recipes = recipes
+        self.machine = Machine()
 
-    def buy_machine(self) -> uuid.UUID:
-        id = uuid.uuid4()
-        self.machines[id] = Machine(id)
-        return id
+    def make(self, order, **kwargs):
+        match order:
+            case order if order == Pizza:
+                product = self.do_pizza(**kwargs)
+            case order if order == Dough:
+                product = self.do_dough(**kwargs)
+            case _other:
+                raise KeyError("Unknown recipe order")
+        self.machine.cook(product)
+        return product
 
-    def make(self, order, recipe):
-        machines = self.machines.values()
-        available = (x for x in machines if not x.running)
-        return next(available).start(order, recipe)
+    def do_pizza(self, name="Margarita", **dough_kwargs):
+        toppings = self.recipes['pizza'][name]
+        dough = self.do_dough(**dough_kwargs)
+        return Pizza(toppings, dough)
 
+    def do_dough(self, style="Neapolitan"):
+        ingredients = self.recipes['dough'][style]
+        return Dough(ingredients)
 
 class Machine:
-    def __init__(self, id) -> None:
-        threading.Thread.__init__(self)
-        self.id = id
-        self.order = None
+    def cook(self, product):
+        product.bake()
+        return True
 
-    @property
-    def running(self):
-        if self.order:
-            return self.order.is_alive()
-        else:
-            return False
-
-    def make(self, order, recipe):
-        print(f"Machine {self.id}: Making {order}")
-        order = Order(order, recipe)
-        return order.start()
-
-
-class Order(threading.Thread):
-    def __init__(self, order, recipe) -> None:
-        threading.Thread.__init__(self)
-        self.order = order
-        self.recipe = recipe
-
-    def run(self):
-        return self.order(self.recipe)
