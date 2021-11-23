@@ -7,7 +7,7 @@ import logging
 import sys
 import warnings
 
-from template import module
+from . import BaseClass, base_function  # pragma: no cover
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 database_name = "mydb.db"
